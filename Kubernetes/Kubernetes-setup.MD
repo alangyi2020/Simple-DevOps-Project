@@ -83,20 +83,34 @@
 1. Deploying Nginx Container
     ```sh
     kubectl run sample-nginx --image=nginx --replicas=2 --port=80
+    
     # kubectl run simple-devops-project --image=yankils/simple-devops-image --replicas=2 --port=8080
     kubectl get pods
+    
+    
     kubectl create deployment sample-nginx --image nginx
+    
+    
     #deployment.apps/sample-nginx created
     kubectl get deployments
+    
+    
 NAME           READY   UP-TO-DATE   AVAILABLE   AGE
 sample-nginx   0/1     1            0           4s
 
+
+
 kubectl rollout status deployment/sample-nginx
+
 Waiting for deployment "sample-nginx" rollout to finish: 0 of 1 updated replicas are available...
 deployment "sample-nginx" successfully rolled out
+
 kubectl get deployments
+
 NAME           READY   UP-TO-DATE   AVAILABLE   AGE
 sample-nginx   1/1     1            1           3m59s
+
+
 kubectl get services -o wide
 NAME           TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE    SELECTOR
 keras-app      LoadBalancer   10.105.207.68   <pending>     80:32669/TCP   11m    app=keras-app
